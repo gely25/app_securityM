@@ -116,7 +116,7 @@ class PermissionMixin(object):
         if request.user.is_authenticated:
             return redirect('home')
 
-        return redirect('security:auth_login')
+        return redirect('security:signin')
 
     def _get_permissions_to_validate(self):
 

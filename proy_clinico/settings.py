@@ -149,7 +149,7 @@ MEDIA_URL = '/media/' # url de imagenes
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 AUTH_USER_MODEL = 'security.User'
-LOGIN_URL = '/auth/signin'
+LOGIN_URL = '/security/signin/'
 #SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 # SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
