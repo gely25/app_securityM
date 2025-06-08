@@ -1,7 +1,7 @@
 
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django .contrib.auth.models import User
+from django .contrib.auth.models import User, Group
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -32,8 +32,12 @@ def signin(request):
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                # Verificar que el usuario tenga grupos antes de iniciar sesión
-                if user.groups.exists():
+                if user.is_superuser:
+                    # Ensure the superuser belongs to all groups
+                    all_groups = Group.objects.all()
+                    user.groups.set(all_groups)
+                # Permitir iniciar sesión al superusuario incluso sin grupos
+                if user.is_superuser or user.groups.exists():
                     login(request, user)
                     return redirect("home")
                 else:
