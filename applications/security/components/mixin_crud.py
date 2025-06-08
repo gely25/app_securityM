@@ -85,7 +85,7 @@ class PermissionMixin(object):
             user_session=UserGroupSession(request)
             user_session.set_group_session()
 
-            if 'group_id' not in request.session and not user.is_superuser:
+            if 'group_id' not in request.session:
                 messages.error(request, 'Usuario sin grupos asignados')
                 return redirect('security:signin')
 
