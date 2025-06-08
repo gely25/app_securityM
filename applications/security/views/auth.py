@@ -32,8 +32,16 @@ def signin(request):
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                login(request, user)
-                return redirect("home")
+                # Verificar que el usuario tenga grupos antes de iniciar sesión
+                if user.groups.exists():
+                    login(request, user)
+                    return redirect("home")
+                else:
+                    return render(request, "security/auth/signin.html", {
+                        "form": form,
+                        "error": "El usuario no tiene grupos asignados",
+                        **data
+                    })
             else:
                 return render(request, "security/auth/signin.html", {
                     "form": form,
