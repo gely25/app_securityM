@@ -2,8 +2,8 @@ from django.db import models
 
 # security/models.py
 from django.contrib.auth.models import AbstractUser, Group, Permission, PermissionsMixin
-from django.db import models
 from django.db.models import UniqueConstraint
+from crum import get_current_request
 
 
 """
