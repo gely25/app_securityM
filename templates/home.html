@@ -174,8 +174,8 @@
                 
                 <!-- Botones de autenticación -->
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-600 font-medium hover:text-medical-blue transition-colors duration-300">Iniciar Sesión</a>
-                    <a href="#" class="bg-gradient-to-r from-medical-blue to-medical-blue-dark text-white px-5 py-2 rounded-full font-medium hover:-translate-y-0.5 hover:shadow-lg hover:shadow-medical-blue/40 transition-all duration-300">Registrarse</a>
+                    <a href="{% url 'security:signin' %}" class="text-gray-600 font-medium hover:text-medical-blue transition-colors duration-300">Iniciar Sesión</a>
+                    <a href="{% url 'security:signup' %}" class="bg-gradient-to-r from-medical-blue to-medical-blue-dark text-white px-5 py-2 rounded-full font-medium hover:-translate-y-0.5 hover:shadow-lg hover:shadow-medical-blue/40 transition-all duration-300">Registrarse</a>
                 </div>
             </div>
         </nav>
@@ -193,9 +193,9 @@
                     <p class="text-xl text-gray-600 leading-relaxed">
                         Gestiona tus citas, historial médico y más con MedSystem, la solución integral para centros médicos.
                     </p>
-                    <button class="relative bg-gradient-to-r from-medical-blue to-medical-blue-dark text-white px-8 py-4 rounded-full text-lg font-semibold hover:-translate-y-1 hover:shadow-xl hover:shadow-medical-blue/40 transition-all duration-300 overflow-hidden btn-sheen">
+                    <a href="{% url 'security:signin' %}" class="relative bg-gradient-to-r from-medical-blue to-medical-blue-dark text-white px-8 py-4 rounded-full text-lg font-semibold hover:-translate-y-1 hover:shadow-xl hover:shadow-medical-blue/40 transition-all duration-300 overflow-hidden btn-sheen">
                         Comenzar
-                    </button>
+                    </a>
                 </div>
                 
                 <!-- Visual del héroe -->

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from applications.security.views.auth import signin, signout
+from applications.security.views.auth import signin, signout, signup
 from applications.security.views.menu import MenuCreateView, MenuDeleteView, MenuListView, MenuUpdateView
 from applications.security.views.module import ModuleCreateView, ModuleDeleteView, ModuleListView, ModuleUpdateView
 
@@ -23,5 +23,5 @@ urlpatterns = [
   # rutas de autenticacion
   path('logout/', signout, name='signout'),
   path('signin/', signin, name='signin'),
-  #path('signup/', signup, name='signup'),
+  path('signup/', signup, name='signup'),
 ]
