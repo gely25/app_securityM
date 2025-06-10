@@ -1,10 +1,29 @@
 
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django import forms
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django .contrib.auth.models import User, Group
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
+
+class SignupForm(UserCreationForm):
+    celular = forms.CharField(label='Celular', required=False)
+    correo = forms.EmailField(label='Correo')
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'dni']
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data.get('correo')
+        user.phone = self.cleaned_data.get('celular')
+        if commit:
+            user.save()
+        return user
+
 
 # ----------------- Cerrar Sesion -----------------
 @login_required
@@ -58,3 +77,23 @@ def signin(request):
                  "error": "Datos invalidos",
                 **data
             })
+
+
+# ----------------- Registro de Usuario -----------------
+def signup(request):
+    data = {
+        "title": "Registro",
+        "title1": "Crear Cuenta",
+        "title2": "Registro de Usuario",
+    }
+
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Usuario creado correctamente")
+            return redirect("security:signin")
+    else:
+        form = SignupForm()
+
+    return render(request, "security/auth/signup.html", {"form": form, **data})
