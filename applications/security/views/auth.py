@@ -39,7 +39,7 @@ def signin(request):
                 # Permitir iniciar sesión al superusuario incluso sin grupos
                 if user.is_superuser or user.groups.exists():
                     login(request, user)
-                    return redirect("home")
+                    return redirect("dashboard")
                 else:
                     return render(request, "security/auth/signin.html", {
                         "form": form,
