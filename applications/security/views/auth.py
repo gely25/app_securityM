@@ -2,7 +2,7 @@
 from django.shortcuts import redirect, render
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django .contrib.auth.models import User, Group
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
