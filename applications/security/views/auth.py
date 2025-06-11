@@ -1,13 +1,4 @@
 
-from django.shortcuts import redirect, render
-from django.contrib.auth.forms import AuthenticationForm
-from django .contrib.auth.models import User, Group
-from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-
-from applications.security.forms.user import SignupForm
-
 # ----------------- Cerrar Sesion -----------------
 @login_required
 def signout(request):
