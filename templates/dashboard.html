@@ -1,151 +1,134 @@
-{% extends 'base.html' %} 
-<title>{% block title %}{{title}}{% endblock %}</title>
+{% extends 'base.html' %}
+<title>{% block title %}{{ title }}{% endblock %}</title>
 
 {% block content %}
-<div class="min-h-screen -mx-4 -my-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-    <!-- Header -->
-   
+<div class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 min-h-screen relative -mx-4 -my-8">
+    <!-- Decorative floating shapes -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="floating-element absolute top-20 left-10 w-32 h-32 bg-cyan-200 rounded-full opacity-20"></div>
+        <div class="floating-element absolute top-40 right-20 w-24 h-24 bg-teal-200 rounded-full opacity-20"></div>
+        <div class="floating-element absolute bottom-20 left-1/3 w-28 h-28 bg-cyan-300 rounded-full opacity-20"></div>
+    </div>
 
-    <!-- Contenido Principal -->
-    <main class="max-w-7xl mx-auto px-6 py-8">
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-8 relative z-10">
         <!-- Welcome Section -->
-        <div class="mb-8">
-            <div class="bg-gradient-to-r from-blue-500 to-indigo-400 rounded-2xl p-8 text-white relative overflow-hidden">
+        <div class="mb-12">
+            <div class="bg-gradient-to-r from-cyan-600 via-teal-600 to-cyan-800 rounded-3xl p-8 text-white relative overflow-hidden">
                 <div class="relative z-10">
-                    <h2 class="text-3xl font-bold mb-2">¡Bienvenido a SaludTotal!</h2>
-                    <p class="text-blue-100 text-lg">Gestiona tu citas y atenciones</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">¡Bienvenido a SaludTotal!</h2>
+                    <p class="text-cyan-100 text-xl mb-6">Gestiona tus citas y atenciones médicas de forma inteligente</p>
+                    <button class="bg-white text-cyan-600 px-8 py-3 rounded-full font-semibold hover:bg-cyan-50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                        Comenzar Ahora
+                    </button>
                 </div>
-                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-                <div class="absolute bottom-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-12 -mb-12"></div>
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 animate-pulse"></div>
+                <div class="absolute bottom-0 right-0 w-48 h-48 bg-white/5 rounded-full -mr-24 -mb-24 animate-pulse" style="animation-delay: 1s;"></div>
+                <div class="absolute top-1/2 right-10 w-32 h-32 border-2 border-white/20 rounded-full animate-spin" style="animation-duration: 10s;"></div>
             </div>
         </div>
 
         <!-- Quick Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                <div class="flex items-center justify-between">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="card-hover bg-white rounded-2xl shadow-xl p-8 border border-gray-100 relative overflow-hidden">
+                <div class="flex items-center justify-between relative z-10">
                     <div>
-                        <p class="text-gray-600 text-sm font-medium">Total Usuarios</p>
-                        <p class="text-2xl font-bold text-gray-900">1,234</p>
+                        <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Total Usuarios</p>
+                        <p class="text-3xl font-bold text-gray-900 mt-2">1,234</p>
+                        <p class="text-green-500 text-sm font-medium mt-1">↗ +12% este mes</p>
                     </div>
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
-                        </svg>
+                    <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center pulse-icon">
+                        <i class="fas fa-users text-white text-xl"></i>
                     </div>
                 </div>
+                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-cyan-600"></div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                <div class="flex items-center justify-between">
+            <div class="card-hover bg-white rounded-2xl shadow-xl p-8 border border-gray-100 relative overflow-hidden">
+                <div class="flex items-center justify-between relative z-10">
                     <div>
-                        <p class="text-gray-600 text-sm font-medium">Atenciones Hoy</p>
-                        <p class="text-2xl font-bold text-gray-900">89</p>
+                        <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Atenciones Hoy</p>
+                        <p class="text-3xl font-bold text-gray-900 mt-2">89</p>
+                        <p class="text-green-500 text-sm font-medium mt-1">↗ +5% vs ayer</p>
                     </div>
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center pulse-icon">
+                        <i class="fas fa-check-circle text-white text-xl"></i>
                     </div>
                 </div>
+                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-emerald-600"></div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                <div class="flex items-center justify-between">
+            <div class="card-hover bg-white rounded-2xl shadow-xl p-8 border border-gray-100 relative overflow-hidden">
+                <div class="flex items-center justify-between relative z-10">
                     <div>
-                        <p class="text-gray-600 text-sm font-medium">Consultas Pendientes</p>
-                        <p class="text-2xl font-bold text-gray-900">23</p>
+                        <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Consultas Pendientes</p>
+                        <p class="text-3xl font-bold text-gray-900 mt-2">23</p>
+                        <p class="text-yellow-500 text-sm font-medium mt-1">⏳ Requiere atención</p>
                     </div>
-                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                    <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center pulse-icon">
+                        <i class="fas fa-clock text-white text-xl"></i>
                     </div>
                 </div>
+                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-orange-500"></div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
-                <div class="flex items-center justify-between">
+            <div class="card-hover bg-white rounded-2xl shadow-xl p-8 border border-gray-100 relative overflow-hidden">
+                <div class="flex items-center justify-between relative z-10">
                     <div>
-                        <p class="text-gray-600 text-sm font-medium">Mantenimientos</p>
-                        <p class="text-2xl font-bold text-gray-900">5</p>
+                        <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Mantenimientos</p>
+                        <p class="text-3xl font-bold text-gray-900 mt-2">5</p>
+                        <p class="text-red-500 text-sm font-medium mt-1">🔧 En progreso</p>
                     </div>
-                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
+                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-600 rounded-2xl flex items-center justify-center pulse-icon">
+                        <i class="fas fa-cog text-white text-xl"></i>
                     </div>
                 </div>
+                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-pink-600"></div>
             </div>
         </div>
 
-        <!-- Menus del sistema -->
-      {% if user.is_authenticated %}
-
-
-            <!-- Iterar por cada menú -->
+        <!-- Dynamic Menus -->
+        {% if user.is_authenticated %}
             {% for menu_item in menu_list %}
-                <div class="mb-12">
-                    <!-- Título del Menú -->
-                    <div class="flex items-center mb-2">
+                <div class="module-section space-y-8 mb-16">
+                    <div class="flex items-center mb-4">
                         {% if menu_item.menu.icon %}
-                            <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-r 
-                                {% cycle 'from-blue-500 to-blue-600' 'from-orange-500 to-red-500' 'from-green-500 to-emerald-500' 'from-purple-500 to-indigo-500' 'from-pink-500 to-rose-500' 'from-teal-500 to-cyan-500' %}
-                                rounded-xl mr-4">
-                                <i class="{{ menu_item.menu.icon }} text-white text-xl"></i>
+                            <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl mr-6 pulse-icon">
+                                <i class="{{ menu_item.menu.icon }} text-white text-2xl"></i>
                             </div>
                         {% endif %}
                         <div>
-                            <h2 class="text-3xl font-bold text-gray-900">{{ menu_item.menu.name }}</h2>
+                            <h2 class="text-4xl font-bold gradient-text">{{ menu_item.menu.name }}</h2>
                             {% if menu_item.menu.description %}
-                                <p class="text-gray-600 mt-1">{{ menu_item.menu.description }}</p>
+                                <p class="text-gray-600 mt-2 text-lg">{{ menu_item.menu.description }}</p>
                             {% endif %}
                         </div>
                     </div>
-                    <hr class="border-0 h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent my-4 rounded">
-                    <!-- Cards de Módulos del Menú -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div class="h-1 bg-gradient-to-r from-cyan-500 via-teal-500 to-cyan-600 rounded-full"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {% for module_permission in menu_item.group_module_permission_list %}
-                            <a href="{% if module_permission.module.url %}{{ module_permission.module.url }}{% else %}#{% endif %}" 
-                            class="module-card bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100 group cursor-pointer block text-decoration-none">
-                                <!-- Icono del Módulo -->
-                                <div class="flex items-center justify-center w-14 h-14 bg-gradient-to-r 
-                                    {% cycle 'from-blue-100 to-blue-200 group-hover:from-blue-200 group-hover:to-blue-300' 'from-orange-100 to-red-100 group-hover:from-orange-200 group-hover:to-red-200' 'from-green-100 to-emerald-100 group-hover:from-green-200 group-hover:to-emerald-200' 'from-purple-100 to-indigo-100 group-hover:from-purple-200 group-hover:to-indigo-200' 'from-pink-100 to-rose-100 group-hover:from-pink-200 group-hover:to-rose-200' 'from-teal-100 to-cyan-100 group-hover:from-teal-200 group-hover:to-cyan-200' %}
-                                    rounded-xl mb-4 transition-all duration-300">
-                                    
+                            <a href="{% if module_permission.module.url %}{{ module_permission.module.url }}{% else %}#{% endif %}" class="module-card card-hover bg-white rounded-3xl shadow-xl p-8 border border-gray-100 group block">
+                                <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-cyan-100 to-cyan-200 group-hover:from-cyan-500 group-hover:to-cyan-600 rounded-2xl mb-6 transition-all duration-300">
                                     {% if module_permission.module.icon %}
-                                        <i class="{{ module_permission.module.icon }} 
-                                        {% cycle 'text-blue-600' 'text-orange-600' 'text-green-600' 'text-purple-600' 'text-pink-600' 'text-teal-600' %} 
-                                        text-lg"></i>
+                                        <i class="{{ module_permission.module.icon }} text-cyan-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
                                     {% else %}
-                                        <!-- Icono por defecto para módulos -->
-                                        <i class="fas fa-cube 
-                                        {% cycle 'text-blue-600' 'text-orange-600' 'text-green-600' 'text-purple-600' 'text-pink-600' 'text-teal-600' %} 
-                                        text-lg"></i>
+                                        <i class="fas fa-cube text-cyan-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
                                     {% endif %}
                                 </div>
-                                
-                                <!-- Nombre del Módulo -->
-                                <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ module_permission.module.name }}</h3>
-                                
-                                <!-- Descripción del Módulo -->
-                                <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">{{ module_permission.module.name }}</h3>
+                                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
                                     {% if module_permission.module.description %}
                                         {{ module_permission.module.description }}
                                     {% else %}
                                         Accede a las funcionalidades de {{ module_permission.module.name|lower }}.
                                     {% endif %}
                                 </p>
-                                
-                                <!-- Botón de Acceso -->
-                                <div class="w-full font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm text-center
-                                    {% cycle 'bg-blue-50 hover:bg-blue-100 text-blue-700 group-hover:bg-blue-600 group-hover:text-white' 'bg-orange-50 hover:bg-orange-100 text-orange-700 group-hover:bg-orange-600 group-hover:text-white' 'bg-green-50 hover:bg-green-100 text-green-700 group-hover:bg-green-600 group-hover:text-white' 'bg-purple-50 hover:bg-purple-100 text-purple-700 group-hover:bg-purple-600 group-hover:text-white' 'bg-pink-50 hover:bg-pink-100 text-pink-700 group-hover:bg-pink-600 group-hover:text-white' 'bg-teal-50 hover:bg-teal-100 text-teal-700 group-hover:bg-teal-600 group-hover:text-white' %}">
-                                    Acceder
+                                <div class="bg-gradient-to-r from-cyan-50 to-cyan-100 group-hover:from-cyan-600 group-hover:to-cyan-700 text-cyan-700 group-hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 text-center">
+                                    Acceder →
                                 </div>
                             </a>
                         {% empty %}
-                            <!-- Mensaje cuando no hay módulos en este menú -->
                             <div class="col-span-full text-center py-8">
                                 <div class="text-gray-400">No hay módulos disponibles en este menú</div>
                             </div>
@@ -153,61 +136,51 @@
                     </div>
                 </div>
             {% empty %}
-                <!-- Mensaje cuando no hay menús disponibles -->
                 <div class="text-center py-12">
                     <div class="text-gray-400 text-lg">No hay módulos disponibles para este grupo</div>
                 </div>
             {% endfor %}
-
-      {% else %}
-                <!-- Mensaje para usuarios no autentificados -->
-                <div class="text-center py-12">
-                    <div class="text-gray-500 text-lg">Debes iniciar sesión para acceder a los módulos</div>
-                </div>
-      {% endif %}
-    </div>
-
-  
+        {% else %}
+            <div class="text-center py-12">
+                <div class="text-gray-500 text-lg">Debes iniciar sesión para acceder a los módulos</div>
+            </div>
+        {% endif %}
     </main>
 </div>
 
 <style>
-/* Custom animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 40px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+/* Floating elements animation */
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+.floating-element:nth-child(2) { animation-delay: -2s; }
+.floating-element:nth-child(3) { animation-delay: -4s; }
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(3deg); }
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translate3d(30px, 0, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+/* Pulse animation for icons */
+.pulse-icon {
+    animation: pulse-glow 2s infinite;
+}
+@keyframes pulse-glow {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); }
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: .8;
-    }
-}
+/* Card hover effects */
+.card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1); }
+.card-hover:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
 
-.module-card {
-    animation: fadeInUp 0.6s ease-out;
-}
+/* Gradient text */
+.gradient-text { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
+/* Module card animation */
+.module-card { animation: fadeInUp 0.6s ease-out; position: relative; overflow: hidden; }
+.module-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s; }
+.module-card:hover::before { left: 100%; }
+@keyframes fadeInUp { from { opacity: 0; transform: translate3d(0,40px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
 .module-card:nth-child(1) { animation-delay: 0.1s; }
 .module-card:nth-child(2) { animation-delay: 0.2s; }
 .module-card:nth-child(3) { animation-delay: 0.3s; }
@@ -215,41 +188,43 @@
 .module-card:nth-child(5) { animation-delay: 0.5s; }
 .module-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Hover effects */
-.module-card:hover .gradient-icon {
-    animation: pulse 2s infinite;
-}
-
-/* Backdrop blur effect */
-.backdrop-blur-lg {
-    backdrop-filter: blur(16px);
-}
+/* Ripple effect */
+.ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.6); transform: scale(0); animation: ripple-animation 0.6s linear; pointer-events: none; }
+@keyframes ripple-animation { to { transform: scale(4); opacity: 0; } }
 </style>
 
-
-
-<!-- Ripple effect styles -->
-<style>
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-button {
-    position: relative;
-    overflow: hidden;
-}
-</style>
+<script>
+// Ripple effect for buttons and module cards
+ document.querySelectorAll('button, .module-card').forEach(element => {
+    element.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        ripple.classList.add('ripple');
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        this.appendChild(ripple);
+        setTimeout(() => { ripple.remove(); }, 600);
+    });
+});
+// Scroll triggered animations
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+document.querySelectorAll('.module-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+});
+</script>
 {% endblock content %}
-
