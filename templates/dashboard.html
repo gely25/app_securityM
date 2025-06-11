@@ -108,7 +108,7 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {% for module_permission in menu_item.group_module_permission_list %}
-                            <a href="{% if module_permission.module.url %}{{ module_permission.module.url }}{% else %}#{% endif %}" class="module-card card-hover bg-white rounded-3xl shadow-xl p-8 border border-gray-100 group block">
+                            <a href="{% if module_permission.module.url %}/{{ module_permission.module.url }}{% else %}#{% endif %}" class="module-card card-hover bg-white rounded-3xl shadow-xl p-8 border border-gray-100 group block">
                                 <div class="flex items-center justify-center w-20 h-20 bg-gradient-to-r from-cyan-100 to-cyan-200 group-hover:from-cyan-500 group-hover:to-cyan-600 rounded-2xl mb-6 transition-all duration-300">
                                     {% if module_permission.module.icon %}
                                         <i class="{{ module_permission.module.icon }} text-cyan-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
