@@ -1,30 +1,4 @@
 
-from django.shortcuts import redirect, render
-from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth.models import User, Group
-from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-
-
-class SignupForm(UserCreationForm):
-    celular = forms.CharField(label='Celular', required=False)
-    correo = forms.EmailField(label='Correo')
-
-    class Meta(UserCreationForm.Meta):
-        model = User
-        fields = ['username', 'first_name', 'last_name', 'dni']
-
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.email = self.cleaned_data.get('correo')
-        user.phone = self.cleaned_data.get('celular')
-        if commit:
-            user.save()
-        return user
-
-
 # ----------------- Cerrar Sesion -----------------
 @login_required
 def signout(request):
